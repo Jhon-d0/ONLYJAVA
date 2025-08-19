@@ -1,4 +1,4 @@
-package Atividade;
+package Atividade1;
 
 public class pet {
     private String nome;
@@ -54,5 +54,16 @@ public class pet {
 
     public void setAlimentacao(String alimentacao) {
         this.alimentacao = alimentacao;
+    }
+
+    @Override
+    public String toString() {
+        return "pet{" +
+                "nome='" + nome + '\'' +
+                ", idade=" + idade +
+                ", raca='" + raca + '\'' +
+                ", porte='" + porte + '\'' +
+                ", alimentacao='" + alimentacao + '\'' +
+                '}';
     }
 }
