@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/KAMEHA/ConstrutorJava/ConstrutorJava.iml" filepath="$PROJECT_DIR$/KAMEHA/ConstrutorJava/ConstrutorJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KAMEHA/KAMEHA.iml" filepath="$PROJECT_DIR$/KAMEHA/KAMEHA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ONLYJAVA.iml" filepath="$PROJECT_DIR$/.idea/ONLYJAVA.iml" />
+    </modules>
+  </component>
+</project>
