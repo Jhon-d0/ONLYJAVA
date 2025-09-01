@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/KAMEHA/ConstrutorJava/ConstrutorJava.iml" filepath="$PROJECT_DIR$/KAMEHA/ConstrutorJava/ConstrutorJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/KAMEHA/KAMEHA.iml" filepath="$PROJECT_DIR$/KAMEHA/KAMEHA.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/ONLYJAVA.iml" filepath="$PROJECT_DIR$/.idea/ONLYJAVA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Senai Java.iml" filepath="$PROJECT_DIR$/.idea/Senai Java.iml" />
     </modules>
   </component>
 </project>
