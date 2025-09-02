@@ -1,9 +1,9 @@
 package Polimorfismo.teste;
 
-public class Cachorro implements Animal{
+public class Gato implements Animal {
 
     @Override
     public String emiteSom() {
-        return "auau";
+        return "miau";
     }
 }
