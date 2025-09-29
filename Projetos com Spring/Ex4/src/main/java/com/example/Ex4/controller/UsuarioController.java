@@ -2,31 +2,49 @@ package com.example.Ex4.controller;
 
 import com.example.Ex4.model.Usuario;
 import com.example.Ex4.repository.UsuarioRepository;
+import com.example.Ex4.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
 
     @GetMapping
-    public List<Usuario> getusuario(){
-        return usuarioRepository.findAll();
+    public List<Usuario> listarUsuarios() {
+        return usuarioService.listarTodos();
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> salvarusuario(@RequestBody Usuario usuario){
-        usuarioRepository.save(usuario);
+    public ResponseEntity<Usuario> salvar(@RequestBody Usuario usuario) {
+        usuarioService.salvar(usuario);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(usuario);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> atualizar(@PathVariable UUID id, @RequestBody Usuario usuario) {
+        usuarioService.atualizar(id, usuario);
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(usuario);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletar(@PathVariable UUID id) {
+        usuarioService.excluir(id);
+        return ResponseEntity
+                .status(HttpStatus.NO_CONTENT)
+                .build();
     }
 
 }

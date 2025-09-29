@@ -6,23 +6,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UsuarioService {
 
-    @Autowired
+    @Autowired // Construtor
     private UsuarioRepository usuarioRepository;
 
-//    Consultar o banco de dados
-    public List<Usuario> getusuario(){
+    // Listar todos os usuários
+    public List<Usuario> listarTodos() {
         return usuarioRepository.findAll();
     }
 
-    public Usuario salvarUsuario(Usuario usuario){
-//        Verifica se o usuario enviado ja existe no banco de dados
-        if(usuarioRepository.findByEmail(usuario.getEmail()).isPresent()){
-            throw new RuntimeException("Usuario ja existe");
+    // Salvar um novo usuário
+    public Usuario salvar(Usuario usuario) {
+        // Verifica se o email já está cadastrado
+        if (usuarioRepository.findByEmail(usuario.getEmail()).isPresent()) {
+            throw new RuntimeException("Usuário já cadastrado");
         }
+        // Salva o usuário no banco de dados
+        return usuarioRepository.save(usuario);
+    }
+
+    public Usuario atualizar(UUID id, Usuario usuario) {
+        // Verifica se o usuário existe
+        if(!usuarioRepository.existsById(id)) {
+            throw new RuntimeException("Usuário não encontrado");
+        }
+        // Atualiza o usuário
+        usuario.setId(id);
+        return usuarioRepository.save(usuario);
+
+    }
+
+    public void excluir(UUID id) {
+        // Verifica se o usuário existe
+        if(!usuarioRepository.existsById(id)) {
+            throw new RuntimeException("Usuário não encontrado");
+        }
+        // Deleta o usuário
+        usuarioRepository.deleteById(id);
     }
 
 }
